@@ -376,7 +376,7 @@ section .__details a {
   flex-direction: column;
   gap:5px;
 }
-.__modal form p{
+.__modal form p, .__modal form .__error{
   align-self:center
 }
 .__modal form p:hover{

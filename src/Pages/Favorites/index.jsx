@@ -43,7 +43,7 @@ const Favorites = ({ url }) => {
         if (error.response.status === 401) {
           navigate("/");
         }
-        setError(error.message);
+        setError(error.response.status);
       });
   };
   useEffect(() => {
@@ -61,6 +61,16 @@ const Favorites = ({ url }) => {
       </div>
     </main>
     )
+  }
+  if(error) {
+
+    return (
+      <main>
+        <div className="container">
+        <div className="__error"><h1>ERROR {error}</h1></div>
+        </div>
+      </main>
+      )
   }
   return (
     <main className="favorites">

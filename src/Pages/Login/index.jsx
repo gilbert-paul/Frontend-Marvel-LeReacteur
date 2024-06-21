@@ -15,11 +15,11 @@ const Login = ({ modalVisibility, setModalVisibility, url }) => {
       .then((response) => {
         Cookies.set("token", response.data.token, { expires: 7 });
         setModalVisibility({ login: false, signup: false });
-    document.body.style.overflowY = "initial";
-
+        document.body.style.overflowY = "initial";
       })
       .catch((error) => {
-        setError(error.message);
+        console.log(error)
+        setError(error.response.data.message);
       });
   };
 
@@ -78,7 +78,7 @@ const Login = ({ modalVisibility, setModalVisibility, url }) => {
               />
             </div>
             <button>Login</button>
-
+            {error && <div className="__error">{error}</div>}
             <p
               onClick={() => {
                 setModalVisibility({ login: false, signup: true });

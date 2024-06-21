@@ -37,7 +37,7 @@ const Signup = ({ url, modalVisibility, setModalVisibility }) => {
 
       })
       .catch((error) => {
-        setError(error.message);
+        setError(error.response.data.message);
       });
   };
 
@@ -80,6 +80,7 @@ const Signup = ({ url, modalVisibility, setModalVisibility }) => {
               <input onChange={handlePassword} type="password" id="password" placeholder="Password"/>
             </div>
             <button>Signup</button>
+            {error && <div className="__error">{error}</div>}
             <p
               onClick={() => {
                 setModalVisibility({ login: true, signup: false });

@@ -11,7 +11,7 @@ const Characters = ({ url }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState({});
 
-  const [error, setError] = useState({});
+  const [error, setError] = useState("");
   const [limit, setLimit] = useState(100);
   const [pages, setPages] = useState(1);
   const [page, setPage] = useState(1);
@@ -41,7 +41,9 @@ const Characters = ({ url }) => {
         setIsLoading(false);
       })
       .catch((error) => {
-        setError(error.message);
+        setError(error.response.status);
+        setIsLoading(false);
+
       });
   };
   useEffect(() => {
@@ -60,6 +62,16 @@ const Characters = ({ url }) => {
       </div>
     </main>
     )
+  }
+  if(error) {
+
+    return (
+      <main>
+        <div className="container">
+        <div className="__error"><h1>ERROR {error}</h1></div>
+        </div>
+      </main>
+      )
   }
   return (
     <main>

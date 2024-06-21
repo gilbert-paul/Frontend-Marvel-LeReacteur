@@ -11,7 +11,7 @@ const Character = ({ url }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState({});
   const [dataComics, setDataComics] = useState([]);
-  const [error, setError] = useState({});
+  const [error, setError] = useState();
   const { id } = useParams();
   const navigate = useNavigate()
 
@@ -26,7 +26,8 @@ const Character = ({ url }) => {
         setIsLoading(false);
       })
       .catch((error) => {
-        setError(error.message);
+        setError(error.response.status);
+        setIsLoading(false)
       });
   };
 
@@ -42,6 +43,16 @@ const Character = ({ url }) => {
       </div>
     </main>
     )
+  }
+  if(error) {
+
+    return (
+      <main>
+        <div className="container">
+        <div className="__error"><h1>ERROR {error}</h1></div>
+        </div>
+      </main>
+      )
   }
   return (
     <main>

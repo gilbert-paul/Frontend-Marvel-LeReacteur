@@ -15,7 +15,7 @@ const Comics = ({ url }) => {
   const [page, setPage] = useState(1);
   const [options, setOptions] = useState([]);
 
-  const [error, setError] = useState({});
+  const [error, setError] = useState("");
 
   const fetchData = async () => {
     await axios
@@ -45,7 +45,8 @@ const Comics = ({ url }) => {
         setIsLoading(false);
       })
       .catch((error) => {
-        setError(error.message);
+        setError(error.response.status);
+        setIsLoading(false)
       });
   };
   useEffect(() => {
@@ -63,6 +64,16 @@ const Comics = ({ url }) => {
       </div>
     </main>
     )
+  }
+  if(error) {
+
+    return (
+      <main>
+        <div className="container">
+        <div className="__error"><h1>ERROR {error}</h1></div>
+        </div>
+      </main>
+      )
   }
   return (
     <main>

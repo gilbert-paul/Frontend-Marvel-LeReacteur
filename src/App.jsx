@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+
 
 import "./App.css";
 import Home from "./Pages/Home";
@@ -31,6 +33,8 @@ function App() {
 
         <Route path="/comics" element={<Comics url={url}/>}></Route>
         <Route path="/comics/:id" element={<Comic url={url}/>}></Route>
+        <Route path="*" element={<Navigate to="/"/>}></Route>
+
 
 
       </Routes>

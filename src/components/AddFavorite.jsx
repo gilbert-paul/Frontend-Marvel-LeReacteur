@@ -27,7 +27,7 @@ const AddFavorite = ({ url, type, title, description, image, id }) => {
         }
       })
       .catch((error) => {
-        setError(error.message);
+        setError(error.response.status);
       });
   };
   const handleSubmit = () => {

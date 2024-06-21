@@ -11,7 +11,7 @@ const Comic = ({ url }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState({});
   const navigate = useNavigate()
-  const [error, setError] = useState({});
+  const [error, setError] = useState("");
   const { id } = useParams();
 
   const fetchData = async () => {
@@ -22,7 +22,8 @@ const Comic = ({ url }) => {
         setIsLoading(false);
       })
       .catch((error) => {
-        setError(error.message);
+        setError(error.response.status);
+        setIsLoading(false)
       });
   };
   useEffect(() => {
@@ -36,6 +37,16 @@ const Comic = ({ url }) => {
       </div>
     </main>
     )
+  }
+  if(error) {
+
+    return (
+      <main>
+        <div className="container">
+        <div className="__error"><h1>ERROR {error}</h1></div>
+        </div>
+      </main>
+      )
   }
   return (
     <main>
