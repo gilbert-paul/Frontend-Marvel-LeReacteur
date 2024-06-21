@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-
 import axios from "axios";
 import IsLoading from "../../components/IsLoading";
 import AddFavorite from "../../components/AddFavorite";
@@ -10,7 +9,7 @@ import AddFavorite from "../../components/AddFavorite";
 const Comic = ({ url }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState({});
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [error, setError] = useState("");
   const { id } = useParams();
 
@@ -23,7 +22,7 @@ const Comic = ({ url }) => {
       })
       .catch((error) => {
         setError(error.response.status);
-        setIsLoading(false)
+        setIsLoading(false);
       });
   };
   useEffect(() => {
@@ -31,43 +30,47 @@ const Comic = ({ url }) => {
   }, []);
   if (isLoading) {
     return (
-    <main>
-      <div className="container">
-      <IsLoading />
-      </div>
-    </main>
-    )
+      <main>
+        <div className="container">
+          <IsLoading />
+        </div>
+      </main>
+    );
   }
-  if(error) {
-
+  if (error) {
     return (
       <main>
         <div className="container">
-        <div className="__error"><h1>ERROR {error}</h1></div>
+          <div className="__error">
+            <h1>ERROR {error}</h1>
+          </div>
         </div>
       </main>
-      )
+    );
   }
   return (
     <main>
       <div className="container comic">
         <div className="__first-bar">
-        <h1>Comic :</h1>
-<button onClick={()=>{
-navigate(-1)
-}}>Back</button>
-</div>
+          <h1>Comic :</h1>
+          <button
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
+            Back
+          </button>
+        </div>
         <section>
           <article className="__card">
             <div className="__card-infos">
               <div>
-
-              <h2>{data.title}</h2>
-              <p>
-                {data.description &&
-                  data.description.split("").splice(0, 600).join("") + "..."}
-              </p>
-                  </div>
+                <h2>{data.title}</h2>
+                <p>
+                  {data.description &&
+                    data.description.split("").splice(0, 600).join("") + "..."}
+                </p>
+              </div>
 
               <img
                 src={

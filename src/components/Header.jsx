@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
-import logo from "../assets/images/logo_marvel.png"
+import logo from "../assets/images/logo_marvel.png";
 
 const Header = ({ modalVisibility, setModalVisibility }) => {
   const navigate = useNavigate();

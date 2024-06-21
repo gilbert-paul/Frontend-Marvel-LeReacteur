@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import TextField from "@mui/material/TextField";
 
-
 import axios from "axios";
 import IsLoading from "../../components/IsLoading";
 import ComicsTitles from "../../components/ComicsTitles";
@@ -55,40 +54,43 @@ const Favorites = ({ url }) => {
 
   if (isLoading) {
     return (
-    <main>
-      <div className="container">
-      <IsLoading />
-      </div>
-    </main>
-    )
+      <main>
+        <div className="container">
+          <IsLoading />
+        </div>
+      </main>
+    );
   }
-  if(error) {
-
+  if (error) {
     return (
       <main>
         <div className="container">
-        <div className="__error"><h1>ERROR {error}</h1></div>
+          <div className="__error">
+            <h1>ERROR {error}</h1>
+          </div>
         </div>
       </main>
-      )
+    );
   }
   return (
     <main className="favorites">
       <div className="container">
         <h1>Favorites :</h1>
         <div className="__first-bar">
-
           <TextField onChange={handlefilterTitle} label="Search by word" />
-        <button onClick={()=>{
-          navigate(-1)
-        }}>Back</button>
+          <button
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
+            Back
+          </button>
         </div>
 
         <section>
-          {!favoritesComics && !favoritesCharacters &&
-              <h2>You don't have favorite yet..</h2>
-
-          }
+          {!favoritesComics && !favoritesCharacters && (
+            <h2>You don't have favorite yet..</h2>
+          )}
           {favoritesComics && (
             <article>
               <h3>Comics :</h3>
@@ -105,16 +107,15 @@ const Favorites = ({ url }) => {
                           <article className="__card">
                             <div className="__card-infos">
                               <div>
-
-                              <h2>{favorite.title}</h2>
-                              <p>
-                                {favorite.description &&
-                                  favorite.description
-                                    .split("")
-                                    .splice(0, 100)
-                                    .join("") + "..."}
-                              </p>
-                                    </div>
+                                <h2>{favorite.title}</h2>
+                                <p>
+                                  {favorite.description &&
+                                    favorite.description
+                                      .split("")
+                                      .splice(0, 100)
+                                      .join("") + "..."}
+                                </p>
+                              </div>
 
                               <img src={favorite.image} alt="" />
                             </div>
@@ -141,24 +142,22 @@ const Favorites = ({ url }) => {
                         >
                           <article className="__card">
                             <div className="__card-infos">
-              {favorite.description&&
-
-                    <div className="__description">
-
-                            <p>
-                      {favorite.description &&
-                        favorite.description
-                        .split("")
-                        .splice(0, 600)
-                        .join("") + "..."}
-                    </p>
-                    <div className="__first-bubble"></div>
-                    <div className="__second-bubble"></div>
-
-                        </div>}
+                              {favorite.description && (
+                                <div className="__description">
+                                  <p>
+                                    {favorite.description &&
+                                      favorite.description
+                                        .split("")
+                                        .splice(0, 600)
+                                        .join("") + "..."}
+                                  </p>
+                                  <div className="__first-bubble"></div>
+                                  <div className="__second-bubble"></div>
+                                </div>
+                              )}
                               <img src={favorite.image} alt="" />
                               <div>
-                                  <h2>{favorite.title}</h2>
+                                <h2>{favorite.title}</h2>
                               </div>
                             </div>
                           </article>

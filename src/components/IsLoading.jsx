@@ -1,4 +1,4 @@
-import loadingPicture from "../assets/images/loading.png"
+import loadingPicture from "../assets/images/loading.png";
 const IsLoading = () => {
   return (
     <div className="__loading">

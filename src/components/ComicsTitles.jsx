@@ -18,32 +18,32 @@ const ComicsTitles = ({ url, comic }) => {
       })
       .catch((error) => {
         setError(error.response.status);
-        setIsLoading(false)
+        setIsLoading(false);
       });
   };
   useEffect(() => {
     fetchDataComics();
   }, []);
 
-  if(isLoading){
-    return <div className="__title-loading">
-    <IsLoading />
-    </div>
+  if (isLoading) {
+    return (
+      <div className="__title-loading">
+        <IsLoading />
+      </div>
+    );
   }
-  if(error) {
-
+  if (error) {
     return (
       <main>
         <div className="container">
-        <div className="__error"><p>ERROR {error}</p></div>
+          <div className="__error">
+            <p>ERROR {error}</p>
+          </div>
         </div>
       </main>
-      )
+    );
   }
-  return (
-    <div>{titleComic}</div>
-  )
-}
-
+  return <div>{titleComic}</div>;
+};
 
 export default ComicsTitles;

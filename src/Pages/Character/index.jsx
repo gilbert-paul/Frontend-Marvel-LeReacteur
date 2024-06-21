@@ -13,7 +13,7 @@ const Character = ({ url }) => {
   const [dataComics, setDataComics] = useState([]);
   const [error, setError] = useState();
   const { id } = useParams();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const fetchData = async () => {
     await axios
@@ -27,7 +27,7 @@ const Character = ({ url }) => {
       })
       .catch((error) => {
         setError(error.response.status);
-        setIsLoading(false)
+        setIsLoading(false);
       });
   };
 
@@ -37,51 +37,51 @@ const Character = ({ url }) => {
 
   if (isLoading) {
     return (
-    <main>
-      <div className="container">
-      <IsLoading />
-      </div>
-    </main>
-    )
+      <main>
+        <div className="container">
+          <IsLoading />
+        </div>
+      </main>
+    );
   }
-  if(error) {
-
+  if (error) {
     return (
       <main>
         <div className="container">
-        <div className="__error"><h1>ERROR {error}</h1></div>
+          <div className="__error">
+            <h1>ERROR {error}</h1>
+          </div>
         </div>
       </main>
-      )
+    );
   }
   return (
     <main>
       <div className="container character">
-
-      <div className="__first-bar">
-        <h1>Characters :</h1>
-<button onClick={()=>{
-navigate(-1)
-}}>Back</button>
-</div>
+        <div className="__first-bar">
+          <h1>Characters :</h1>
+          <button
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
+            Back
+          </button>
+        </div>
         <section>
           <article className="__card">
             <div className="__card-infos">
-              {data.description&&
-                    <div className="__description">
-
+              {data.description && (
+                <div className="__description">
                   <p>
-                      {data.description &&
-                        data.description
-                        .split("")
-                        .splice(0, 600)
-                        .join("") + "..."}
-                    </p>
-                    <div className="__first-bubble"></div>
-                    <div className="__second-bubble"></div>
-
-                        </div>
-                    }
+                    {data.description &&
+                      data.description.split("").splice(0, 600).join("") +
+                        "..."}
+                  </p>
+                  <div className="__first-bubble"></div>
+                  <div className="__second-bubble"></div>
+                </div>
+              )}
               <img
                 src={
                   data.thumbnail.path +
@@ -91,7 +91,7 @@ navigate(-1)
                 alt=""
               />
               <div>
-              <h2>{data.name}</h2>
+                <h2>{data.name}</h2>
               </div>
 
               <AddFavorite
@@ -106,9 +106,8 @@ navigate(-1)
                 id={data._id}
                 type="characters"
               />
-
             </div>
-            
+
             <div className="__card-more-infos">
               <h3>Comics :</h3>
               <div className="__details">

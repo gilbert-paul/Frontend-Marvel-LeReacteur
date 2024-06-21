@@ -18,9 +18,17 @@ const Dropdown = ({ limit, setLimit, pages, setPages, page, setPage }) => {
   return (
     <div className="__pagination">
       <div>
-        <p onClick={handleLimitVisibility} onMouseEnter={()=>{setPageVisibility(false)}}> Characters/page : {limit}</p>
+        <p
+          onClick={handleLimitVisibility}
+          onMouseEnter={() => {
+            setPageVisibility(false);
+          }}
+        >
+          {" "}
+          Characters/page : {limit}
+        </p>
         {limitVisibility && (
-          <ul onMouseLeave={handleLimitVisibility} >
+          <ul onMouseLeave={handleLimitVisibility}>
             <li
               onClick={() => {
                 setLimit(20);
@@ -70,7 +78,14 @@ const Dropdown = ({ limit, setLimit, pages, setPages, page, setPage }) => {
         )}
       </div>
       <div>
-        <p onClick={handlePageVisibility} onMouseEnter={()=>{setLimitVisibility(false)}}>Page : {page}</p>
+        <p
+          onClick={handlePageVisibility}
+          onMouseEnter={() => {
+            setLimitVisibility(false);
+          }}
+        >
+          Page : {page}
+        </p>
         {pageVisibility && (
           <ul onMouseLeave={handlePageVisibility}>
             {arrayFromPages.map((page) => {

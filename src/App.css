@@ -3,22 +3,17 @@
 @import url(./styles/tablet.css) screen and (max-width:1068px);
 @import url(./styles/phone.css) screen and (max-width:768px);
 
-
-:root{
-  --primary-color:#F6F6F6;
-  --secondary-color:#EE171F;
-  --third-color:#222222;
-  --third-color-opacity:#212121cc;
-  --fourth-color:#FBE73F;
+:root {
+  --primary-color: #F6F6F6;
+  --secondary-color: #EE171F;
+  --third-color: #222222;
+  --third-color-opacity: #212121cc;
+  --fourth-color: #FBE73F;
 }
 
 /**************RAPPEL FONTS**************/
 /*   font-family: "Bangers", system-ui; */
 /*  font-family: "Patrick Hand", cursive;*/
-
-
-
-
 
 * {
   box-sizing: border-box;

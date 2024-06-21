@@ -33,8 +33,7 @@ const Signup = ({ url, modalVisibility, setModalVisibility }) => {
       .then((response) => {
         Cookies.set("token", response.data.token, { expires: 7 });
         setModalVisibility({ login: false, signup: false });
-    document.body.style.overflowY = "initial";
-
+        document.body.style.overflowY = "initial";
       })
       .catch((error) => {
         setError(error.response.data.message);
@@ -67,17 +66,32 @@ const Signup = ({ url, modalVisibility, setModalVisibility }) => {
             <div>
               <label htmlFor="username">Username : </label>
 
-              <input onChange={handleUsername} id="username" type="text"  placeholder="Username" />
+              <input
+                onChange={handleUsername}
+                id="username"
+                type="text"
+                placeholder="Username"
+              />
             </div>
             <div>
               <label htmlFor="mail">Mail : </label>
 
-              <input onChange={handleMail} id="mail" type="email"  placeholder="Mail"/>
+              <input
+                onChange={handleMail}
+                id="mail"
+                type="email"
+                placeholder="Mail"
+              />
             </div>
             <div>
               <label htmlFor="password">Password : </label>
 
-              <input onChange={handlePassword} type="password" id="password" placeholder="Password"/>
+              <input
+                onChange={handlePassword}
+                type="password"
+                id="password"
+                placeholder="Password"
+              />
             </div>
             <button>Signup</button>
             {error && <div className="__error">{error}</div>}

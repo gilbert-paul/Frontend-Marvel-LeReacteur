@@ -18,7 +18,6 @@ const Login = ({ modalVisibility, setModalVisibility, url }) => {
         document.body.style.overflowY = "initial";
       })
       .catch((error) => {
-        console.log(error)
         setError(error.response.data.message);
       });
   };

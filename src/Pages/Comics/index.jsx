@@ -46,71 +46,70 @@ const Comics = ({ url }) => {
       })
       .catch((error) => {
         setError(error.response.status);
-        setIsLoading(false)
+        setIsLoading(false);
       });
   };
   useEffect(() => {
     fetchData();
   }, [filterTitle, page, limit]);
   const handlefilterTitle = (event) => {
-    setPage(1)
+    setPage(1);
     setFilterTitle(event.target.value);
   };
   if (isLoading) {
     return (
-    <main>
-      <div className="container">
-      <IsLoading />
-      </div>
-    </main>
-    )
+      <main>
+        <div className="container">
+          <IsLoading />
+        </div>
+      </main>
+    );
   }
-  if(error) {
-
+  if (error) {
     return (
       <main>
         <div className="container">
-        <div className="__error"><h1>ERROR {error}</h1></div>
+          <div className="__error">
+            <h1>ERROR {error}</h1>
+          </div>
         </div>
       </main>
-      )
+    );
   }
   return (
     <main>
       <div className="container comics">
         <div className="__navbar">
-
-        <Autocomplete
-          disablePortal
-          id="combo-box-demo"
-          options={options}
-          filterOptions={(x) => x}
-          sx={{ width: 300 }}
-          freeSolo={true}
-          onChange={(event) => {
-            const newFilter = event.target.childNodes[0].data || ""
-            setFilterTitle(newFilter);
-          }}
-          
-          renderInput={(params) => (
-            <TextField
-            {...params}
-            onChange={handlefilterTitle}
-            label="Search by name"
-            />
-          )}
+          <Autocomplete
+            disablePortal
+            id="combo-box-demo"
+            options={options}
+            filterOptions={(x) => x}
+            sx={{ width: 300 }}
+            freeSolo={true}
+            onChange={(event) => {
+              const newFilter = event.target.childNodes[0].data || "";
+              setFilterTitle(newFilter);
+            }}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                onChange={handlefilterTitle}
+                label="Search by name"
+              />
+            )}
           />
 
-        <h1>Comics :</h1>
-        <Dropdown
-          limit={limit}
-          setLimit={setLimit}
-          pages={pages}
-          setPages={setPages}
-          page={page}
-          setPage={setPage}
+          <h1>Comics :</h1>
+          <Dropdown
+            limit={limit}
+            setLimit={setLimit}
+            pages={pages}
+            setPages={setPages}
+            page={page}
+            setPage={setPage}
           />
-          </div>
+        </div>
         <section>
           {data.results.map((comic, index) => {
             return (
@@ -118,15 +117,14 @@ const Comics = ({ url }) => {
                 <article className="__card">
                   <div className="__card-infos">
                     <div>
+                      <h2>{comic.title}</h2>
 
-                    <h2>{comic.title}</h2>
-
-                    <p>
-                      {comic.description &&
-                        comic.description.split("").splice(0, 100).join("") +
-                        "..."}
-                    </p>
-                        </div>
+                      <p>
+                        {comic.description &&
+                          comic.description.split("").splice(0, 100).join("") +
+                            "..."}
+                      </p>
+                    </div>
                     <img
                       src={
                         comic.thumbnail.path +
