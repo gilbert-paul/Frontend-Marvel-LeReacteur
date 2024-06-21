@@ -364,7 +364,11 @@ section .__details a {
 .favorites section article>div {
   display: flex;
   align-items: stretch;
+  flex-wrap:wrap;
 
+}
+.characters section a {
+  position:relative;
 }
 
 .favorites section article {

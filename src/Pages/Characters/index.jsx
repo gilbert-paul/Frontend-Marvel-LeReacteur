@@ -6,6 +6,7 @@ import TextField from "@mui/material/TextField";
 
 import axios from "axios";
 import IsLoading from "../../components/IsLoading";
+import AddFavorite from "../../components/AddFavorite";
 
 const Characters = ({ url }) => {
   const [isLoading, setIsLoading] = useState(true);

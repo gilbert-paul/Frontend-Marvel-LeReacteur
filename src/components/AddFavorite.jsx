@@ -30,7 +30,8 @@ const AddFavorite = ({ url, type, title, description, image, id }) => {
         setError(error.response.status);
       });
   };
-  const handleSubmit = () => {
+  const handleSubmit = (elem) => {
+    elem.stopPropagation()
     fetchData();
   };
   if (isSubmit) {
