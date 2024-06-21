@@ -1,0 +1,33 @@
+.home section .__card {
+width:auto;
+}
+
+.home section {
+  flex-wrap:nowrap;
+  max-height:200px;
+  gap:10px;
+}
+.home section a{
+padding:0}
+
+
+
+.home section .__card img{
+  width: 100%;
+  object-fit: cover;
+}
+.home section:last-child .__card img{
+object-position: top;
+}
+
+.home section a .__card img{
+height: 100%;
+object-position: top;
+}
+article.__card-image{
+  overflow: hidden;
+  width:100%;
+}
+.home section a{
+  flex-grow:1
+}

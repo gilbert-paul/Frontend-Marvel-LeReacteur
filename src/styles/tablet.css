@@ -1,0 +1,30 @@
+section .__card:nth-child(2){
+  display:none;
+}
+nav.__main-nav{
+  gap:10px;
+}
+nav.__user-nav{
+  gap:10px;
+}
+header div, header nav{
+  gap:10px;
+}
+
+h1{
+  order: -1;
+    width: 100%;
+}
+.__navbar{
+  flex-wrap: wrap;
+}
+section a {
+  flex-basis:calc(100% / 3 )
+}
+.favorites section article>div{
+  gap:0px;
+  flex-wrap:wrap
+}
+.character .__card-infos{
+  width:40%;
+}

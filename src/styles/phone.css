@@ -1,0 +1,32 @@
+nav.__main-nav{
+  gap:25px;
+}
+nav.__user-nav{
+  gap:10px;
+}
+header .container{
+  height:auto;
+}
+header nav{
+  gap:20px;
+  flex-wrap:wrap;
+}
+header div div{
+  width:100%;
+}
+header .container{
+  flex-wrap: wrap;
+  justify-content: start;
+  gap:25px;
+}
+.__navbar{
+  gap:10Px;
+}
+section a {
+  flex-basis:calc(100% / 2 )
+}
+.favorites section article>div{
+  gap:0px;
+  flex-wrap:wrap
+}
+
