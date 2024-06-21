@@ -40,7 +40,7 @@ header .container {
   justify-content: space-between;
   height:120px;
 }
-header button:hover{
+header button:hover, .__first-bar button:hover{
   scale:1.2;
   transition:scale .3s;
 }
@@ -268,6 +268,16 @@ h2 {
   font-weight: 400;
     font-family: "Bangers", system-ui;
 }
+.__first-bar button{
+  background-color: var(--primary-color);
+  color:var(--third-color)
+}
+.favorites .__first-bar{
+  display: flex;
+  width:100%;
+  justify-content: space-between;
+  flex-direction: row;
+}
 .favorites h3{
   font-size: 3em;
   font-weight: 400;
@@ -478,6 +488,16 @@ fieldset.MuiOutlinedInput-notchedOutline{
   font-family: "Patrick Hand", cursive;
   font-size:1.2em;
 }
+.comic .__first-bar, .character .__first-bar{
+  display: flex;
+  flex-direction: column;
+  width:100%;
+}
+.comic .__first-bar button, .character .__first-bar button{
+  align-self:end;
+  margin:0px;
+}
+
 .comic .__card, .character .__card-infos{
   max-width: 300px;
 }

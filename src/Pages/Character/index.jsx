@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import axios from "axios";
@@ -13,6 +13,7 @@ const Character = ({ url }) => {
   const [dataComics, setDataComics] = useState([]);
   const [error, setError] = useState({});
   const { id } = useParams();
+  const navigate = useNavigate()
 
   const fetchData = async () => {
     await axios
@@ -45,7 +46,13 @@ const Character = ({ url }) => {
   return (
     <main>
       <div className="container character">
-        <h1>Character :</h1>
+
+      <div className="__first-bar">
+        <h1>Characters :</h1>
+<button onClick={()=>{
+navigate(-1)
+}}>Back</button>
+</div>
         <section>
           <article className="__card">
             <div className="__card-infos">

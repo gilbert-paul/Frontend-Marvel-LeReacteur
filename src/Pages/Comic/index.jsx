@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
 
 import axios from "axios";
 import IsLoading from "../../components/IsLoading";
@@ -9,7 +10,7 @@ import AddFavorite from "../../components/AddFavorite";
 const Comic = ({ url }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState({});
-
+  const navigate = useNavigate()
   const [error, setError] = useState({});
   const { id } = useParams();
 
@@ -39,7 +40,12 @@ const Comic = ({ url }) => {
   return (
     <main>
       <div className="container comic">
+        <div className="__first-bar">
         <h1>Comic :</h1>
+<button onClick={()=>{
+navigate(-1)
+}}>Back</button>
+</div>
         <section>
           <article className="__card">
             <div className="__card-infos">

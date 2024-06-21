@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import TextField from "@mui/material/TextField";
 
+
 import axios from "axios";
 import IsLoading from "../../components/IsLoading";
 import ComicsTitles from "../../components/ComicsTitles";
@@ -64,9 +65,15 @@ const Favorites = ({ url }) => {
   return (
     <main className="favorites">
       <div className="container">
-        <TextField onChange={handlefilterTitle} label="Search by word" />
-
         <h1>Favorites :</h1>
+        <div className="__first-bar">
+
+          <TextField onChange={handlefilterTitle} label="Search by word" />
+        <button onClick={()=>{
+          navigate(-1)
+        }}>Back</button>
+        </div>
+
         <section>
           {!favoritesComics && !favoritesCharacters &&
               <h2>You don't have favorite yet..</h2>
